@@ -11,15 +11,16 @@
 
 
 // module: multiplikation zahl1 * zahl2 | test
-output(div(4 , 5));
-output(div(2 , -3));
+// output(div(4 , 5));
+// output(div(2 , -3));
 output(div(2,0));
 function div(zahl1, zahl2) {
-    if (zahl2 == 0) {
-        output("Division durch 0 nicht möglich");
-    }
-    else {
+    if (zahl2 != 0) {
+        
         return zahl1 / zahl2;
+        
+    } else {
+        return("Division durch 0 nicht möglich");
     }    
 }  
 
