@@ -3,22 +3,49 @@
 /*
 0. a+b / a-b/ a*b / a/b  // ergebnis c 
 1. Dateneingabe + -überprüfung :
-2. Auswahl Rechenart : 
+2. Auswahl Rechenart : check!
 3. Fkt. Grundrechenarten : check!
 4. Ausgabe in Konsole : check!
 */
 
+//startApp();
+function startApp() {
+    output(calculator(getNumber("erste"),getNumber("zweite"),getOp()));
+}
+
+function getNumber(stelle) {
+    let inputStr = prompt("Bitte " + stelle + " Zahl eingeben: ")
+    let num = parseInt(inputStr);
+    return num;
+}
+
+
+
+output(getOp());
+function getOp() {
+    let op = prompt("Bitte Operator eingeben:");
+    if (isOpValid(op)) {
+        return "operator ok";
+    } else {
+        return "operator falsch";
+    }
+}   
+
+function isOpValid(op) {
+    return op == "+" || op == "-" || op == "*" ||  op == "/" || op == ":" 
+    
+}
+
+
 // module: calculator | testS.
 // agreement  : "+","-","*","/"
-output(calculator(2,2,"+"));
-output(calculator(2,2,"-"));
-output(calculator(2,2,"*"));
-output(calculator(2,2,"/"));
-output(calculator(2,0,"/"));
+// output(calculator(2,2,"+"));
+// output(calculator(2,2,"-"));
+// output(calculator(2,2,"*"));
+// output(calculator(2,2,"/"));
+//  output(calculator(2,0,":"));
 
-output(calculator(2,2," "));
-
-
+// output(calculator(2,2," "));
 function calculator(a,b,op) {
     switch (op) {
         case "+": //addition
@@ -31,6 +58,7 @@ function calculator(a,b,op) {
             return mult(a,b);
            
         case "/": //division
+        case ":":
             return div(a,b);
           
         default:    // error
@@ -86,6 +114,15 @@ function sub(zahl1, zahl2) {
 // output("Hello");
 // output(2);
 function output(outputData) {
-    console.log(outputData);
+
+    if (typeof outputData == "number") {
+        console.log("das Ergebnis ist: "+ outputData);
+    } else {
+        console.log("Error: " + outputData);
+    }
 }
+
+
+
+    
 
